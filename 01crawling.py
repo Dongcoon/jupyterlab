@@ -115,4 +115,19 @@ for i in range(len(books)):
 cur.close()
 conn.close()
 
+### 리스트에 저장된 데이터들을 JSON 파일에 저장
+import json
+from collections import OrderedDict
 
+# 저장형식 : {'title':, 'writer':,'price':}
+
+books = []
+with open('data/newbooks.json', 'a', encoding='utf-8') as f:
+    for i in range(len(titles)):
+        book = OrderedDict()
+        book['title'] = titles[i].text_content()
+        book['writer'] = writers[i].text_content()
+        book['price'] = prices[i].text_content().replace(',', '').replace('원', '')
+        books.append(book)
+
+    f.write(json.dumps(books, ensure_ascii=False))
