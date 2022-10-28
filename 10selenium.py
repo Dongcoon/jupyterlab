@@ -42,6 +42,13 @@ for i in range(0,books_len+2,5):
     regdate.append(html.select('td')[i+3].text)
     prices.append(html.select('td')[i+4].text.replace(',','').replace('원',''))
 
+#방식 2
+# for title in html.select('.tbl_type_list td:nth-child(2)'): print(title.text)
+# for writer in html.select('table tbody td:nth-child(3)'): print(writer.text)
+# for writer in html.select('table tbody td:nth-child(3)'): print(writer.text)
+# for rdg in html.select('table tbody td:nth-child(4)'): print(rdg.text)
+# for price in html.select('table tbody td:nth-child(5)'): print(price.text)
+
 # csv저장
 header = '도서명,저자,출판일,가격\n'
 
